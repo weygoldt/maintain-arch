@@ -13,8 +13,8 @@ sudo journalctl -p 3 -xb
 
 ## 3. Update system
 ```sh
-sudo pacman -Syu    # for main repositories only
-paru -Syu           # for all repositories
+sudo pacman -Syyu    # for main repositories only
+paru -Syyu           # for all repositories
 ```
 ## 4. Check pacman cache
 The  cache where packages are stored, both installed and uninstalled.
@@ -66,3 +66,6 @@ sudo journalctl --vacuum-time=2weeks # cleans all older than 2 weeks
 ```sh
 sudo reflector -c Germany -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 ```
+
+## 11. In case of unbootable system
+Hit `ctrl alt f2` to drop to the terminal, then login and enter `timeshift --restore` to bring up a list of restorepoints to choose from.
