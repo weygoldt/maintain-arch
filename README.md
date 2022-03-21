@@ -17,16 +17,11 @@ sudo pacman -Syyu    # for main repositories only
 paru -Syyu           # for all repositories
 ```
 ## 4. Check pacman cache
-The  cache where packages are stored, both installed and uninstalled.
+The  cache where packages are stored, both installed and uninstalled. It is **not** advised to delete the full pacman cache. Only delete packages from the cache that are not installed.
 To delete the cached packages that are not currently installed use
 ```sh
 sudo pacman -Sc     # for main repositories only
 paru -Sc            # for all repositories
-```
-A more agressive approach deletes all chached packages, installed and uninstalled. 
-```sh
-sudo pacman -Scc    # main repos
-paru -Scc           # all repos
 ```
 
 ## 5. Clean unwanted dependencies
