@@ -58,8 +58,18 @@ sudo journalctl --vacuum-time=2weeks # cleans all older than 2 weeks
 ```
 
 ## 10. Keep mirror list fresh
+Make sure the correct countries are listed in `sudo vim /etc/xdg/reflector/reflector.conf`. To automatically refresh mirrors once a week use
 ```sh
-sudo reflector -c Germany -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+sudo systemctl enable reflector.service reflector.timer
+sudo systemctl start reflector.service reflector.timer
+```
+To refresh mirrors now use
+```sh
+sudo systemctl start reflector.service
+```
+To check the generated mirrorlist use 
+```sh
+cat /etc/pacman.d/mirrorlist
 ```
 
 ## 11. In case of unbootable system
