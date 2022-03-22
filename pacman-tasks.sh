@@ -5,6 +5,7 @@
 echo $'\e[1;32mUpdating system ...\e[0m'
 sudo pacman -Syu
 paru -Syu
+flatpak update
 
 # Delete non-installed cached packages
 echo $'\e[1;32mDeleting uninstalled packages from cache ...\e[0m'
