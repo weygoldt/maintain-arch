@@ -74,3 +74,14 @@ cat /etc/pacman.d/mirrorlist
 
 ## 11. In case of unbootable system
 Hit `ctrl alt f2` to drop to the terminal, then login and enter `timeshift --restore` to bring up a list of restorepoints to choose from.
+
+## Check if cronie runs facilitate cronjobs
+```sh
+sudo systemctl status cronie.service
+```
+
+## Check if timeshift snapshots are performed as planned
+... and compare the output to the GUI output to verify
+```sh
+sudo timeshift --check --scripted
+```
