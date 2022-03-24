@@ -1,10 +1,24 @@
 #!/bin/sh
 # A collection of tasks to keep pacman up and running.
 
+# Refresh mirrors
+echo $'\e[1;32mRefreshing mirrors ...\e[0m'
+sudo systemctl start reflector.service
+
 # Update system
 echo $'\e[1;32mUpdating system ...\e[0m'
+sleep 2s
+
+echo # to make a new line
+echo $'\e[1;32mPacman\e[0m'
 sudo pacman -Syu
+
+echo # to make a new line
+echo $'\e[1;32mParu\e[0m'
 paru -Syu
+
+echo # to make a new line
+echo $'\e[1;32mFlatpak\e[0m'
 flatpak update
 
 # Delete non-installed cached packages
@@ -16,7 +30,3 @@ paru -Sc
 echo $'\e[1;32mCleaning unused dependencies ...\e[0m'
 sudo pacman -Rsn $(pacman -Qdtq) 
 paru --clean
-
-# Refresh mirrors
-echo $'\e[1;32mRefreshing mirrors ...\e[0m'
-sudo reflector -c Germany -a 6 --sort rate --save /etc/pacman.d/mirrorlist
