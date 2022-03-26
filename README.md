@@ -1,4 +1,6 @@
-# Arch linux system maintenance
+# My arch linux system maintenance
+**Disclaimer:** This was created for personal documentation of my setup to make my setup more reproducible. Do not use this as a guide.
+
 A collection of useful commands to keep arch linux clean inspired by a video of [eflinux](https://www.youtube.com/watch?v=wwSkFi3h2nI) and the arch wiki on [system maintenance](https://wiki.archlinux.org/title/System_maintenance).
 
 ## 1. Check for failed systemd services
