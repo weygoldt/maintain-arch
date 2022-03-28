@@ -102,7 +102,15 @@ sudo btrbk list all
 sudo btrbk list latest
 ```
 
-## Timeshift
+## Check space usage of the file system
+This needs btrfs-specific commands. Simple `df` will miscalculate disk usage:
+```sh
+btrfs filesystem show / # or
+btrfs filesystem df /   # or
+btrfs filesysten usage /
+```
+
+## Timeshift (not used anymore )
 ## 11. In case of unbootable system
 Hit `ctrl alt f2` to drop to the terminal, then login and enter `timeshift --restore` to bring up a list of restorepoints to choose from.
 
