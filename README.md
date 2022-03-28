@@ -18,6 +18,8 @@ sudo journalctl -p 3 -xb
 ```sh
 sudo pacman -Syyu    # for main repositories only
 paru -Syyu           # for all repositories
+flatpak update       # for flatpak updates
+conda update -n base -c defaults conda # to update conda 
 ```
 ## 4. Clean .cache
 ```sh
@@ -74,6 +76,23 @@ sudo systemctl start reflector.service
 To check the generated mirrorlist use 
 ```sh
 cat /etc/pacman.d/mirrorlist
+```
+
+## 8. Start the file indexer
+I disabled the file indexer on startup because of its high ram usage in idle. 
+This reduces the RAM usage from ~3GiB to 0.8GiB in idle.
+To index files that accumulated during the inactivity of the indexer start it by
+```sh
+balooctl enable
+balooctl start
+
+# To see if there are no pending files to be indexed
+balooctl status
+# Or to monitor what it is doing
+balooctl monitor
+
+# If it is finished, run
+balooctl disable
 ```
 
 ## Btrbk snapshots and backups
